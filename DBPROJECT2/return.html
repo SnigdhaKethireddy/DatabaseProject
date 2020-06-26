@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Return Book</title>
+	<link rel="stylesheet" href="common.css">
+
+
+</head>
+<body>
+	<h1 align = "center" ><b> Library Database Management System </b></h1>
+
+
+
+
+	<div class="row">
+		<div class="set">
+			<h2 align = "left"> Home </h2>
+			<br>
+			<a align="center" href="addmem.html">Adding a Member</a><br>
+            <a align="center" href="addbook.html">Adding a Book</a><br>
+			<a align="center" href="gencard.html">Card Generation</a><br>
+			<a align="center" href="borrow.html">Borrowing a book</a><br>
+			<a align="center" href="return.html">Returning a book</a><br>
+            <a align="center" href="renew.html">Renewal of Membership</a><br>
+
+			<!-- <a href="logout.php">Logout</a><br>  -->
+		</div>
+		<div class="set1">
+			<h2 align = "left"> Return Book </h2>
+			<br>
+			<h3 align = "left"> Enter the details </h3>
+			<br>
+			<form action="add-return.php"  enctype="multipart/form-data" method="POST">
+				Member SSN <span class="star">*</span>:<br>
+				<input type="text" name="ssn" placeholder="Enter member ssn" required>
+				<br><br>
+				Book ISBN <span class="star">*</span>:<br>
+				<input type="text" name="isbn" placeholder="Enter book isbn" required>
+				<br><br>
+				Issue Date <span class="star">*</span>:<br>
+				<input type="text" name="issue_date" placeholder="YYYY-MM-DD" required>
+				<br><br>
+
+
+				<input type="submit" value="Return Book" name="submit">
+
+			</form>
+
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</body>
+</html>

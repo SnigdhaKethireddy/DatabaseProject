@@ -1,0 +1,50 @@
+
+		body {
+			text-align: left;
+			background-color:lightgrey; 
+		}
+
+		
+		a{
+			line-height: 40px;
+			font-size: 30px;
+			color:black;
+			text-decoration:none;
+		 }
+		a:hover {
+			color:green;
+		  }
+
+		  h1{
+			padding-top: 50px;
+			font-size: 70px;
+		  }
+
+        h2{
+           
+           font-size: 30px;
+       }
+        
+       h3{
+
+           font-size: 25px;
+       
+       }
+		.set{
+			width: 33%;
+			float: left;
+			padding-top: 50px;
+		}
+		.set1{
+			width: 66%;
+			float: left;
+			padding-top: 50px;
+		}
+		.row:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		
+	

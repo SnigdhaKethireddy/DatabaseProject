@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add book</title>
+	<link rel="stylesheet" href="common.css">
+	</style>
+</head>
+<body>
+    <h1 align = "center" ><b> Library Database Management System </b></h1>
+    
+    <div class="row">
+		<div class="set">
+			<h2 align = "left"> Home </h2>
+			<br>
+			
+            <a align="center" href="addmem.html">Adding a Member</a><br>
+            <a align="center" href="addbook.html">Adding a Book</a><br>
+			<a align="center" href="gencard.html">Card Generation</a><br>
+			<a align="center" href="borrow.html">Borrowing a book</a><br>
+			<a align="center" href="return.html">Returning a book</a><br>
+            <a align="center" href="renew.html">Renewal of Membership</a><br>
+            
+         <!-- <a href="logout.php">Logout</a><br>  -->
+		</div>
+		<div class="set1">
+			<h2 align = "left"> Add Book </h2>
+			<br>
+			<h3 align = "left"> Enter the details </h3>
+			<br>
+
+			<form action="add-book.php"  enctype="multipart/form-data" method="POST">
+				ISBN <span class="star">*</span>:<br>
+				<input type="text" name="isbn" placeholder="Enter isbn of book" required>
+				<br><br>
+				Title <span class="star">*</span>:<br>
+				<input type="text" name="title" placeholder="Enter title of book" required="">
+				<br><br>
+				Author <span class="star">*</span>:<br>
+				<input type="text" name="author" placeholder="Enter author of book" required="">
+				<br><br>
+				SubjectArea <span class="star">*</span>:<br>
+				<input type="text" name="subject" placeholder="Enter subject of book" required="">
+				<br><br>
+				 In the library or not? <span class="star">*</span>:<br>
+				<input type="radio" name="library" id="type_of_books" value="type_of_books" required=""> In Library<br>
+				<input type="radio" name="library" id="to_acquire" value="to_acquire" required=""> To Acquire<br>
+				<br><br>
+				<div class="in_library cannot_lend can_lend box">
+					Description <span class="star">*</span>:<br>
+					<input type="text" name="description" id="description" placeholder="Enter Description of book" required>
+					<br><br>
+					Binding <span class="star">*</span>:<br>
+					<input type="text" name="binding" id="binding" placeholder="Enter binding of book" required="">
+					<br><br>
+					Edition <span class="star">*</span>:<br>
+					<input type="text" name="edition" id="edition" placeholder="Enter edition of book" required="">
+					<br><br>
+					Can be lent or not? <span class="star">*</span>:<br>
+					<input type="radio" name="lent" id="can_lend" value="can_lend" required=""> Can Lend<br>
+					<input type="radio" name="lent" id="cannot_lend" value="cannot_lend" required=""> Cannot Lend<br>
+					<br><br>
+					Total Count <span class="star">*</span>:<br>
+					<input type="text" name="total_count" id="total_count" placeholder="Enter No of copies of book" required>
+					<br><br>
+					<div class="cannot_lend box">
+						Type of Book <span class="star">*</span>:<br>
+						<input type="text" name="type" id="type" placeholder="Enter type of book" required="">
+						<br><br>
+
+					</div>
+
+				</div>
+				<div class="to_acquire box">
+					Reason <span class="star">*</span>:<br>
+					<input type="text" name="reason" id="reason" placeholder="Enter your Reason" required="">
+					<br><br>
+				</div>
+
+				
+				<input type="submit" value="Submit" name="submit">
+
+			</form>
+
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	    $('input[type="radio"]').click(function(){
+	        var inputValue = $(this).attr("value");
+	        var targetBox = $("." + inputValue);
+	        $(".box").not(targetBox).hide();
+	        $(targetBox).show();
+
+	        if ($('#to_acquire').is(':checked')) {
+		    	$("#reason").prop('required',true);
+		    	$("#can_lend").prop('required',false);
+		    	$("#cannot_lend").prop('required',false);
+		    	$("#total_count").prop('required',false);
+		    	$("#description").prop('required',false);
+		    	$("#binding").prop('required',false);
+		    	$("#edition").prop('required',false);
+		    	$("#type").prop('required',false);
+			}
+
+			if ($('#type_of_book').is(':checked')) {
+		    	$("#reason").prop('required',false);
+		    	$("#can_lend").prop('required',true);
+		    	$("#cannot_lend").prop('required',true);
+		    	$("#total_count").prop('required',true);
+		    	$("#description").prop('required',true);
+		    	$("#binding").prop('required',true);
+		    	$("#edition").prop('required',true);
+		    	$("#type").prop('required',false);
+			}
+
+			if ($('#can_lend').is(':checked')) {
+		    	$("#type").prop('required',false);
+			}
+
+			if ($('#cannot_lend').is(':checked')) {
+		    	$("#type").prop('required',true);
+			}
+
+	    });
+
+	    
+	});
+	</script>
+</body>
+</html>	

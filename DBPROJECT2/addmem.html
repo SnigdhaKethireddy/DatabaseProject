@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Member</title>
+	<link rel="stylesheet" href="common.css">
+		
+	
+</head>
+<body>
+	<h1 align = "center" ><b> Library Database Management System </b></h1>
+
+
+
+
+	<div class="row">
+		<div class="set">
+			<h2 align = "left">Home </h2>
+			<br>
+			
+			<a align="center" href="addmem.html">Adding a Member</a><br>
+            <a align="center" href="addbook.html">Adding a Book</a><br>
+			<a align="center" href="gencard.html">Card Generation</a><br>
+			<a align="center" href="borrow.html">Borrowing a book</a><br>
+			<a align="center" href="return.html">Returning a book</a><br>
+            <a align="center" href="renew.html">Renewal of Membership</a><br>
+
+            <!-- <a href="logout.php">Logout</a><br> -->
+		</div>
+		<div class="set1">
+			<h2 align = "left"> Add Member </h2>
+			<br>
+			<h3 align = "left"> Enter the details </h3>
+			<br>
+			<form action="add-mem.php"  enctype="multipart/form-data" method="POST">
+				SSN <span class="star">*</span>:<br>
+				<input type="text" name="ssn" placeholder="Enter your ssn" required>
+				<br><br>
+				Campus Mail Address <span class="star">*</span>:<br>
+				<input type="text" name="campusadd" placeholder="Enter your campus address" required="">
+				<br><br>
+				Phone Number <span class="star">*</span>:<br>
+				<input type="text" name="phonenum" placeholder="Enter your 10 digit phone num" required="">
+				<br><br>
+				Type of member <span class="star">*</span>:<br>
+				<input type="radio" name="typeofmem" id="prof" value="prof" required=""> Professor<br>
+				<input type="radio" name="typeofmem" id="genmem" value="genmem" required=""> General Member<br>
+				<div class="prof box">
+
+				</div>
+				<div class="genmem box">
+					<br><br>
+					Home Address <span class="star">*</span>:<br>
+					<input type="text" name="homeadd" id="homeadd" placeholder="Enter your Homeaddress" required="">
+				</div>
+
+				<br><br>
+				<input type="submit" value="Submit" name="submit">
+
+			</form>
+
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	    $('input[type="radio"]').click(function(){
+	        var inputValue = $(this).attr("value");
+	        var targetBox = $("." + inputValue);
+	        $(".box").not(targetBox).hide();
+	        $(targetBox).show();
+
+	        if ($('#genmem').is(':checked')) {
+	    
+		    	$("#homeadd").prop('required',true);
+
+			}
+
+			if ($('#prof').is(':checked')) {
+		    
+		    	$("#homeadd").prop('required',false);
+
+			}
+
+	    });
+
+	    
+	});
+	</script>
+</body>
+</html>
